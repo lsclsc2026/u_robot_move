@@ -1,0 +1,113 @@
+<!--
+  Replan when the path becomes invalid. Planner failures are retried after the
+  dynamic global costmap has been refreshed instead of immediately aborting the
+  navigation goal. If FollowPath cannot execute a path from a tight endpoint,
+  first create turning room with a collision-checked short reverse, then clear
+  stale local state and retry. Rotation direction remains controller-selected.
+-->
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="3" name="NavigateWithCostmapClearing">
+      <PipelineSequence name="NavigateWithReplanning">
+        <RateController hz="1.0">
+          <Fallback name="ComputePathWhenInvalid">
+            <ReactiveSequence>
+              <Inverter>
+                <GlobalUpdatedGoal/>
+              </Inverter>
+              <IsPathValid path="{path}"/>
+            </ReactiveSequence>
+            <RecoveryNode number_of_retries="2" name="ComputePathWithDynamicObstacleRetry">
+              <Fallback name="PreferKinematicPlansThenUseGridRecoveryPlan">
+                <ComputePathToPose
+                  goal="{goal}" path="{path}" planner_id="SmoothForward"/>
+                <ComputePathToPose
+                  goal="{goal}" path="{path}" planner_id="TightRecovery"/>
+                <ComputePathToPose
+                  goal="{goal}" path="{path}" planner_id="GridRecovery"/>
+              </Fallback>
+              <Sequence name="RefreshGlobalObstaclesBeforeReplan">
+                <ClearEntireCostmap
+                  name="ClearGlobalCostmapForReplan"
+                  service_name="global_costmap/clear_entirely_global_costmap"/>
+                <Wait wait_duration="2"/>
+              </Sequence>
+            </RecoveryNode>
+          </Fallback>
+        </RateController>
+        <RecoveryNode number_of_retries="4" name="FollowPathWithLocalClear">
+          <FollowPath path="{path}" controller_id="FollowPath"/>
+          <Fallback name="CreateTurningRoomInEitherDirectionOrRefreshOnly">
+            <Sequence name="BackUpThenRefreshLocalMap">
+              <BackUp
+                name="BackUpFromTightEndpoint"
+                backup_dist="0.30"
+                backup_speed="0.12"
+                time_allowance="5.0"/>
+              <ClearEntireCostmap
+                name="ClearLocalCostmapAfterBackUp"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+            <Sequence name="BackUpBlockedDriveForwardThenRefreshLocalMap">
+              <DriveOnHeading
+                name="DriveForwardFromRearObstacle"
+                dist_to_travel="0.25"
+                speed="0.12"
+                time_allowance="5.0"/>
+              <ClearEntireCostmap
+                name="ClearLocalCostmapAfterForwardEscape"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+            <Sequence name="BothDirectionsBlockedRefreshOnly">
+              <ClearEntireCostmap
+                name="ClearLocalCostmapWithoutEscapeMotion"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+          </Fallback>
+        </RecoveryNode>
+      </PipelineSequence>
+      <Fallback name="EscapeLethalStartInEitherDirectionOrRefreshMapsOnly">
+        <Sequence name="BackUpThenRefreshBothMaps">
+          <BackUp
+            name="BackUpFromLethalPlannerStart"
+            backup_dist="0.30"
+            backup_speed="0.12"
+            time_allowance="5.0"/>
+          <ClearEntireCostmap
+            name="ClearLocalCostmapAfterPlannerBackUp"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalCostmapAfterPlannerBackUp"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="2"/>
+        </Sequence>
+        <Sequence name="BackUpBlockedDriveForwardThenRefreshBothMaps">
+          <DriveOnHeading
+            name="DriveForwardFromLethalRearObstacle"
+            dist_to_travel="0.25"
+            speed="0.12"
+            time_allowance="5.0"/>
+          <ClearEntireCostmap
+            name="ClearLocalCostmapAfterPlannerForwardEscape"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalCostmapAfterPlannerForwardEscape"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="2"/>
+        </Sequence>
+        <Sequence name="BothDirectionsBlockedRefreshBothMapsOnly">
+          <ClearEntireCostmap
+            name="ClearLocalCostmapFinal"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalCostmapFinal"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="2"/>
+        </Sequence>
+      </Fallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

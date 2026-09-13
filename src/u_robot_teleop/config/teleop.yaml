@@ -1,0 +1,19 @@
+# Native receiver configuration (not ROS parameters). PC1 address is mandatory
+# at launch because its LAN address changes; never reuse a stale fixed default.
+receiver:
+  interface: eth0
+  listen: 0.0.0.0
+  port: 39001
+  ack_port: 39002
+  command_hz: 100
+  soft_timeout_ms: 150
+  hard_timeout_ms: 500
+  axis_deadzone: 0.05
+  deadman_button: none
+  native_button_map: true
+axes:
+  lx: [-1.000, 0.000, 0.941]
+  ly: [-0.797, 0.000, 0.870]
+  rx: [-0.823, 0.000, 0.953]
+  ry: [-1.000, 0.000, 1.000]
+sport_lock: /home/unitree/data/logs/a2_sport_control.lock

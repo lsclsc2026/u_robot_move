@@ -1,0 +1,17 @@
+velocity_deadband_adapter:
+  ros__parameters:
+    input_topic: /cmd_vel
+    output_topic: /cmd_vel_shaped
+    activation_epsilon: 0.005
+    minimum_vx: 0.08
+    minimum_vy: 0.08
+    # A pure turn needs 0.12 rad/s to start the A2 gait. During translation the
+    # adapter scales the complete planar twist, preserving MPPI curvature.
+    minimum_wz: 0.12
+    minimum_wz_while_translating: 0.0
+    maximum_wz: 0.45
+    # Recorded command/odometry regression (2026-09-02): forward gain ~=0.625,
+    # yaw gain ~=0.836, reverse gain ~=1.056.  Correct their ratios only while
+    # translating; pure-turn deadband behavior remains unchanged.
+    forward_yaw_gain: 0.75
+    reverse_yaw_gain: 1.20

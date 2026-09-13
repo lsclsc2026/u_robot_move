@@ -1,0 +1,15 @@
+front_camera_bridge:
+  ros__parameters:
+    multicast_group: 230.1.1.1
+    udp_port: 1720
+    network_interface: eth0
+    output_topic: /camera/front/image/compressed
+    frame_id: camera_link
+    # A2 source is 1280x720. 960x540 keeps substantially more detail without
+    # overwhelming the shared Foxglove/SSH link like full-resolution JPEG.
+    output_width: 960
+    output_height: 540
+    jpeg_quality: 82
+    publish_rate_hz: 15.0
+    jitter_latency_ms: 20
+    stale_timeout_sec: 3.0

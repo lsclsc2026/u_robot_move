@@ -1,0 +1,112 @@
+amcl:
+  ros__parameters:
+    use_sim_time: false
+    # The A2's gait accumulates more yaw error than a wheeled base. Keep a
+    # wider rotational particle spread so scans can correct odometry heading
+    # instead of letting map->odom drift accumulate over patrol laps.
+    alpha1: 0.20
+    alpha2: 0.20
+    alpha3: 0.15
+    alpha4: 0.15
+    alpha5: 0.10
+    base_frame_id: base_link
+    global_frame_id: map
+    odom_frame_id: odom
+    scan_topic: /scan
+    robot_model_type: nav2_amcl::OmniMotionModel
+    # Probabilistic likelihood field supports beam skipping: scan returns from
+    # people and moved furniture are excluded instead of being interpreted as
+    # evidence that the robot pose itself is wrong.
+    laser_model_type: likelihood_field_prob
+    do_beamskip: true
+    beam_skip_distance: 0.5
+    beam_skip_threshold: 0.3
+    beam_skip_error_threshold: 0.9
+    laser_likelihood_max_dist: 2.0
+    # Very distant returns add little indoor structure and amplify small yaw
+    # errors. The recorded room01 trial was dominated by returns below 15 m.
+    laser_max_range: 15.0
+    laser_min_range: 0.55
+    max_beams: 160
+    max_particles: 4000
+    min_particles: 800
+    pf_err: 0.05
+    pf_z: 0.99
+    # Do not collapse the particle cloud on every highly-correlated 10 Hz
+    # scan. This was the main cause of covariance shrinking while the physical
+    # pose became progressively less accurate over repeated laps.
+    resample_interval: 2
+    recovery_alpha_slow: 0.001
+    # Dynamic people and close wall views temporarily lower scan likelihood.
+    # The previous 0.10 injected global random particles too aggressively and
+    # produced metre-scale covariance spikes during repeated patrol cycles.
+    recovery_alpha_fast: 0.02
+    save_pose_rate: 0.5
+    sigma_hit: 0.15
+    tf_broadcast: true
+    # This trial measured scan arrival at 0.267 s behind wall time (0.272 s at
+    # p95), so 0.60 s covers the real transport delay without masking a stale
+    # localization pipeline for 1.5 seconds.
+    transform_tolerance: 0.60
+    # Avoid repeatedly resampling an unmoving robot. Patrol explicitly asks
+    # AMCL for a no-motion update after settling at each waypoint.
+    update_min_a: 0.03
+    update_min_d: 0.04
+    # Preserve meaningful map correction without overfitting a dynamic room.
+    z_hit: 0.70
+    z_max: 0.03
+    z_rand: 0.25
+    z_short: 0.02
+    always_reset_initial_pose: false
+    set_initial_pose: false
+    initial_pose:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      yaw: 0.0
+
+initial_pose_adapter:
+  ros__parameters:
+    input_topic: /operator/initialpose
+    output_topic: /initialpose
+    map_frame: map
+    nomotion_service: /request_nomotion_update
+    # Foxglove's mouse click is approximate. Never pass a zero-covariance click
+    # to AMCL: it caused the room06 run to remain overconfident until motion.
+    position_stddev: 0.50
+    yaw_stddev: 0.35
+
+map_server:
+  ros__parameters:
+    use_sim_time: false
+    yaml_filename: ""
+
+localization_monitor:
+  ros__parameters:
+    use_sim_time: false
+    map_frame: map
+    base_frame: base_link
+    pose_topic: /amcl_pose
+    scan_topic: /scan
+    map_topic: /map
+    scan_timeout_ms: 500
+    position_stddev_warn: 0.15
+    yaw_stddev_warn: 0.20
+    pose_jump_warn: 0.75
+    yaw_jump_warn: 0.80
+    jump_warning_duration_ms: 3000
+    alignment_topic: /localization/scan_alignment
+    quality_topic: /localization/quality_ok
+    occupied_threshold: 50
+    scan_match_radius: 0.15
+    scan_match_min_range: 0.55
+    scan_match_max_range: 15.0
+    scan_match_max_beams: 160
+    scan_match_min_points: 40
+    # Isolated replay of patrol_test_01 measured healthy sections around
+    # 0.80-0.88 and the late-drift section down to 0.718. Hysteresis avoids
+    # pausing on a single person or movable obstacle crossing the scan.
+    scan_alignment_warn: 0.72
+    scan_alignment_recover: 0.78
+    scan_alignment_ema_alpha: 0.25
+    scan_alignment_bad_samples: 3

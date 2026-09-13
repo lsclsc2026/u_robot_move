@@ -1,0 +1,52 @@
+navigation_cloud_filter:
+  ros__parameters:
+    input_topic: /unitree/slam_lidar/points
+    output_topic: /navigation/obstacles
+    target_frame: base_link
+    transform_timeout: 0.10
+    input_timeout: 0.50
+
+    # The A2 fusion stream contains two no-return sentinels. The front sensor
+    # leaves invalid samples at its origin. The rear sensor's invalid origin has
+    # already been transformed into the front-lidar frame by the vendor fusion
+    # node. Remove both before treating any finite XYZ sample as an obstacle.
+    invalid_return_radius: 0.08
+    invalid_return_centers:
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.0
+      - 0.006
+      - -0.618
+
+    # The body mask includes the lidar housings and their measured near-field
+    # self-return fringe. Leg links are masked separately from their live TF so
+    # this box does not need to cover the full leg sweep.
+    self_min_x: -0.58
+    self_max_x: 0.58
+    self_min_y: -0.36
+    self_max_y: 0.36
+    self_min_z: -0.35
+    self_max_z: 0.55
+
+    # URDF-aware self filtering. Each leg is represented by three capsules
+    # between live joint frames and a foot sphere. Navigation output fails safe
+    # (becomes stale) if current leg TF is unavailable.
+    dynamic_self_mask_enabled: true
+    require_dynamic_self_mask: true
+    leg_prefixes: [FL, FR, RL, RR]
+    leg_capsule_radii: [0.10, 0.085, 0.065, 0.060]
+
+    # Live data puts the floor mode at z=-0.42 m with a noisy upper tail. Keep a
+    # commissioning margin above that tail; phase-2 terrain perception will
+    # replace this flat-floor gate when low-profile obstacles are commissioned.
+    min_height: -0.24
+    max_height: 0.80
+    min_range: 0.10
+    max_range: 6.0
+    voxel_size: 0.05
+    # A single noisy 5 cm voxel must not create a 0.75 m inflation island.
+    minimum_voxel_neighbors: 2
+
+    minimum_output_points: 5
+    maximum_points_in_self_box: 0

@@ -1,0 +1,36 @@
+waypoint_patrol:
+  ros__parameters:
+    waypoint_topic: /operator/waypoint
+    command_topic: /operator/patrol_command
+    cancel_topic: /operator/cancel_navigation
+    marker_topic: /navigation/waypoints
+    active_topic: /waypoint_patrol/active
+    status_topic: /waypoint_patrol/status
+    map_topic: /map
+    action_name: /navigate_to_pose
+    map_frame: map
+    base_frame: base_link
+    # Empty means: derive <current_map_stem>_waypoints.yaml from map_yaml.
+    map_yaml: ""
+    waypoint_file: ""
+    occupied_threshold: 50
+    waypoint_clearance: 0.55
+    duplicate_distance: 0.20
+    maximum_waypoints: 100
+    # Let the gait settle, ask AMCL to reweight the stationary scan against the
+    # map, then wait for the localization-quality monitor before the next leg.
+    arrival_pause: 1.0
+    nomotion_service: /request_nomotion_update
+    nomotion_reobserve_delay: 1.0
+    localization_quality_topic: /localization/quality_ok
+    # Advisory only. Dynamic people and moved objects legitimately lower the
+    # static-map alignment score; costmaps handle them and patrol must not stop.
+    require_localization_quality: false
+    retry_delay: 5.0
+    maximum_retries: 3
+    # A nearby target deep behind the current body heading is approached with
+    # the dedicated Reeds-Shepp / reverse MPPI behavior tree. Long patrol legs
+    # remain forward-first even if their initial bearing is temporarily behind.
+    reverse_behavior_tree: ""
+    reverse_max_distance: 3.0
+    reverse_min_bearing: 2.0943951023931953  # 120 degrees

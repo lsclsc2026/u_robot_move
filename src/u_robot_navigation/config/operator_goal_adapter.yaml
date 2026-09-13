@@ -1,0 +1,23 @@
+operator_goal_adapter:
+  ros__parameters:
+    goal_topic: /operator/goal_pose
+    # Foxglove and RViz use this standard click-to-goal topic by default. It is
+    # still only an intent input to the same guarded adapter, never a Nav2 or
+    # hardware bypass.
+    standard_goal_topic: /move_base_simple/goal
+    cancel_topic: /operator/cancel_navigation
+    patrol_active_topic: /waypoint_patrol/active
+    map_topic: /map
+    pose_topic: /amcl_pose
+    obstacle_topic: /navigation/obstacles
+    map_frame: map
+    base_frame: base_link
+
+    obstacle_timeout: 0.50
+    transform_tolerance: 0.10
+    # Reject click-to-goal while the broad operator initial-pose distribution is
+    # still converging. room06 settled to about 0.03 m / 0.014 rad.
+    position_stddev_limit: 0.15
+    yaw_stddev_limit: 0.20
+    occupied_threshold: 50
+    goal_clearance: 0.55

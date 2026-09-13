@@ -1,0 +1,20 @@
+pointcloud_to_laserscan:
+  ros__parameters:
+    # Mapping deliberately uses a narrow torso-height slice. The navigation
+    # costmap continues to consume the broad 3D cloud for low/high obstacles.
+    target_frame: base_link
+    transform_tolerance: 0.10
+    min_height: -0.15
+    max_height: 0.25
+    angle_min: -3.141592653589793
+    angle_max: 3.141592653589793
+    angle_increment: 0.004363323
+    scan_time: 0.10
+    # Exclude returns from the A2 body and nominal leg sweep. The configured
+    # Nav2 footprint has a 0.53 m corner radius before padding.
+    range_min: 0.55
+    range_max: 30.0
+    # +Inf is the standard LaserScan representation for a direction with no
+    # valid return. Keep its semantics for SLAM instead of fabricating a hit.
+    use_inf: true
+    inf_epsilon: 1.0

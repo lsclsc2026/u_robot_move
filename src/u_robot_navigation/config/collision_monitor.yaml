@@ -1,0 +1,43 @@
+collision_monitor:
+  ros__parameters:
+    use_sim_time: false
+    base_frame_id: base_link
+    odom_frame_id: odom
+    # The A2 gait deadband is compensated upstream. Collision Monitor remains
+    # downstream so it can still scale or stop every shaped command.
+    cmd_vel_in_topic: /cmd_vel_shaped
+    cmd_vel_out_topic: /cmd_vel_safe
+    transform_tolerance: 0.15
+    # Reject stale obstacle data. A steadily increasing timestamp difference
+    # indicates an upstream publishing pause, not ordinary transport latency.
+    # The fused cloud's preserved acquisition stamp was measured 1.2-1.65 s
+    # behind wall time. Receipt freshness is independently enforced by the
+    # navigation cloud filter's 0.50 s watchdog.
+    source_timeout: 2.0
+    base_shift_correction: true
+    stop_pub_timeout: 0.50
+
+    # Predict collision along the actual omnidirectional command. A fixed circle
+    # would stop forward motion merely because a wall is close behind the A2.
+    polygons: [FootprintApproach]
+    FootprintApproach:
+      type: polygon
+      action_type: approach
+      footprint_topic: /local_costmap/published_footprint
+      # MPPI and the local footprint checker are the primary avoidance layers.
+      # The old 1.5 s / 3-point setting switched state roughly 1,467 times in a
+      # single run and continuously distorted otherwise valid velocity output.
+      time_before_collision: 1.00
+      simulation_time_step: 0.05
+      max_points: 8
+      visualize: true
+      polygon_pub_topic: /collision_monitor/approach_footprint
+      enabled: true
+
+    observation_sources: [navigation_cloud]
+    navigation_cloud:
+      type: pointcloud
+      topic: /navigation/obstacles
+      min_height: -0.24
+      max_height: 0.80
+      enabled: true

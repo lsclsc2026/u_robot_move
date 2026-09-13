@@ -1,0 +1,16 @@
+a2_driver:
+  ros__parameters:
+    # Safe default. Production control requires dry_run=false and an explicit
+    # call to /a2_driver/enable_control.
+    dry_run: true
+    input_topic: /cmd_vel_safe
+    sport_socket_path: /tmp/u_robot_a2_sport.sock
+    publish_rate_hz: 50.0
+    command_timeout_ms: 250
+
+    # Conservative commissioning limits. Increase only after closed-loop tests.
+    # First autonomous-navigation commissioning limits. Raise only after the
+    # filtered obstacle path and collision monitor pass physical tests.
+    max_vx: 0.20
+    max_vy: 0.15
+    max_wz: 0.45

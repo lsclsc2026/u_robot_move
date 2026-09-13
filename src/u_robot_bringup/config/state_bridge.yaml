@@ -1,0 +1,67 @@
+state_bridge:
+  ros__parameters:
+    source_topic: /dog_odom
+    output_topic: /odometry/a2
+    expected_source_child_frame: robot_center
+    odom_frame: odom
+    base_frame: base_link
+    publish_tf: true
+    output_rate_hz: 100.0
+    source_timeout_ms: 100
+
+    # The A2 source currently publishes all-zero covariance. These conservative
+    # commissioning values must be replaced by bag-derived estimates.
+    replace_zero_covariance: true
+    pose_covariance_diagonal: [0.01, 0.01, 0.04, 0.0025, 0.0025, 0.01]
+    twist_covariance_diagonal: [0.04, 0.04, 0.09, 0.01, 0.01, 0.04]
+
+joint_state_bridge:
+  ros__parameters:
+    # A2 publishes this native DDS channel outside the ROS graph. The bridge
+    # reads it through the official SDK2 and republishes standard JointState.
+    source_topic: rt/lf/lowstate
+    ipc_channel: u_robot_a2_lowstate
+    ipc_poll_rate_hz: 500.0
+    output_topic: /joint_states
+    raw_output_topic: /joint_states/raw_motor
+    output_rate_hz: 50.0
+    source_timeout_ms: 250
+
+    # The official A2/HG LowState exposes link joint positions in radians. Its
+    # first 12 motors use the official FR, FL, RR, RL / hip, thigh, calf order,
+    # identical to the wrapped A2 URDF and SDK2 JointIndex definition.
+    calibration_profile: a2_official_direct_joint_radians_v1
+    calibration_confirmed: true
+    position_scale: [1.0, 1.0, 1.0,
+                     1.0, 1.0, 1.0,
+                     1.0, 1.0, 1.0,
+                     1.0, 1.0, 1.0]
+    position_direction: [1.0, 1.0, 1.0,
+                         1.0, 1.0, 1.0,
+                         1.0, 1.0, 1.0,
+                         1.0, 1.0, 1.0]
+    position_offset: [0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0,
+                      0.0, 0.0, 0.0]
+    enforce_position_limits: true
+    position_limit_tolerance_rad: 0.05
+    base_frame: base_link
+    footprint_topic: /visualization/robot_footprint
+    footprint_publish_rate_hz: 20.0
+    # Dimensions and vertices match the URDF-derived Nav2 footprint. The marker
+    # is display-only, but must not visually exaggerate the collision envelope.
+    footprint_front: 0.44
+    footprint_rear: 0.46
+    footprint_half_width: 0.29
+    footprint_vertices: [0.44, 0.10,
+                         0.44, -0.10,
+                         0.35, -0.28,
+                         -0.32, -0.29,
+                         -0.46, -0.26,
+                         -0.46, 0.26,
+                         -0.32, 0.29,
+                         0.35, 0.28]
+    # Display-only lift and line width. These never change TF or costmaps.
+    footprint_visual_z: 0.55
+    footprint_line_width: 0.035

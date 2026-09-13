@@ -1,0 +1,16 @@
+pointcloud_to_laserscan:
+  ros__parameters:
+    # These values are commissioning defaults, not final calibration values.
+    target_frame: base_link
+    transform_tolerance: 0.10
+    min_height: -0.35
+    max_height: 0.75
+    angle_min: -3.141592653589793
+    angle_max: 3.141592653589793
+    angle_increment: 0.004363323
+    scan_time: 0.10
+    # Suppress self returns inside the conservative A2 navigation footprint.
+    range_min: 0.55
+    range_max: 30.0
+    use_inf: true
+    inf_epsilon: 1.0

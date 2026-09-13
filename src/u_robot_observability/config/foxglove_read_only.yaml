@@ -1,0 +1,44 @@
+/**:
+  ros__parameters:
+    # The launch file overrides address and port. Loopback + SSH forwarding is the
+    # default deployment because the Foxglove protocol has no project-level auth.
+    address: 127.0.0.1
+    # One operational Foxglove connection carries both navigation and live robot
+    # state. Individual 3D panels select their own layers in the client layout.
+    port: 9000
+    tls: false
+    use_sim_time: false
+
+    # Keep the first-stage stream compact. The raw fused cloud is deliberately not
+    # forwarded; /scan plus /map is sufficient for 2D mapping visualization.
+    topic_whitelist:
+      - '^/(map|map_metadata|map_updates|scan|tf|tf_static|robot_description|joint_states|diagnostics)$'
+      - '^/odometry/a2$'
+      - '^/(amcl_pose|particle_cloud)$'
+      - '^/joint_states/raw_motor$'
+      - '^/camera/front/image/compressed$'
+      - '^/slam_toolbox/(graph_visualization|scan_visualization)$'
+      - '^/visualization/robot_footprint$'
+      - '^/(plan|local_plan|cmd_vel_safe)$'
+      - '^/(operator/(goal_pose|cancel_navigation)|navigation/(obstacles|waypoints))$'
+      - '^/waypoint_patrol/(active|status)$'
+      - '^/(local_costmap|global_costmap|collision_monitor)/.*$'
+      - '^/foxglove_bridge/client_count$'
+
+    # This is the default policy. Localization may add /operator/initialpose; navigation
+    # may additionally add the guarded operator/standard goal topics. No profile permits browser-originated
+    # velocity or hardware commands.
+    client_topic_whitelist: ['(?!)']
+    service_whitelist: ['(?!)']
+    param_whitelist: ['(?!)']
+    capabilities: [connectionGraph, assets]
+
+    include_hidden: false
+    min_qos_depth: 1
+    max_qos_depth: 10
+    num_threads: 2
+    send_buffer_limit: 10000000
+    message_backlog_size: 512
+    publish_client_count: true
+    sysinfo: false
+    ignore_unresponsive_param_nodes: true

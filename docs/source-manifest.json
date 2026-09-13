@@ -1,0 +1,940 @@
+{
+  "date": "2026-09-13",
+  "scope": "source and scripts; external SDK managed separately",
+  "files": [
+    {
+      "path": "src/u_robot_a2_driver/CMakeLists.txt",
+      "sha256": "74ba8f1a40a125be65b27c135ef2258fe8d8820fb7f5b58f85cc8fa4615320a5",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/include/u_robot_a2_driver/command_guard.hpp",
+      "sha256": "26eff5f0646a8d2fcf4a531cb6360270faecaf75091bbcb21ce85c8e469d6af0",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/include/u_robot_a2_driver/sport_command_packet.hpp",
+      "sha256": "adf35919340e2851484d8d7374dccf301cb0a3e1fbb3ac60419abe394dbd41f2",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/include/u_robot_a2_driver/sport_control_lock.hpp",
+      "sha256": "02684e4a9b116929358ca7da93e576110c8d49535b5cb965bd4a97b295211ccb",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/package.xml",
+      "sha256": "b402ee2d3707dfa1e4d442cc23f0b60d89020266c606536ece732dec3e290c06",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/src/a2_driver_node.cpp",
+      "sha256": "52defd3583e6e1cfab4be65ecfb76a11eb0fdbf6aa681f8330318dbc27eb15d7",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/src/a2_sport_backend.cpp",
+      "sha256": "d558bc684830d940bfd9fbb002ac3ab1d20181036a318398a2cba55d3ed68e8a",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/src/a2_sport_probe.cpp",
+      "sha256": "131c51fbe6b26ca463c24e7a64457ad0a230f30acc564bede7917bff97cdccaa",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/src/command_guard.cpp",
+      "sha256": "8bba8194590d2183a671edf8fd702887a9c3ecb03374de5dc66b0cd6641181e9",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_a2_driver/test/test_command_guard.cpp",
+      "sha256": "905de36d42141bff09b8aaab22ff1d93e6d440e06aae69a3dd854816e2581800",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/CMakeLists.txt",
+      "sha256": "0af4310d1c62e9756a6e5b85ec1f9f40196bf86658d92224d95ba95a6ca83f9b",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/config/a2_driver.yaml",
+      "sha256": "5ea061bec19ce1f955244741c27c57705a86574bf543dd38fffb03e21fceaaa7",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/config/state_bridge.yaml",
+      "sha256": "5ce7f3c4dbbef4d2edb47a8904b2a307422660b3844169c7fadd58af80226f47",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/launch/base.launch.py",
+      "sha256": "be77c814b50042ce9a86cf53c3987c660236c1da9853a8002159120722b416b9",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/launch/live_visualization.launch.py",
+      "sha256": "175c6610360a94776d24495516eeae308f51f49116fa2a697842bb67b391cb5a",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/package.xml",
+      "sha256": "aaea1b39bdc0c9e94437862bf891fe5e3da547da6cc2484dfeb0f711c892173e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/u_robot_bringup/__init__.py",
+      "sha256": "5cc1f1bbf9d92ca4166744443ea5fab46cc61c5ab20e38edab2874fd3efc144b",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_bringup/u_robot_bringup/session_guard.py",
+      "sha256": "f79d72a903a4f101f86e3f1d4153cf4beca8f28a414d8721b306dfc885d0483c",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/CMakeLists.txt",
+      "sha256": "0b2ea19031473152f6a59e4a4ddf2d116c009d958bc8d015e221902ef8796b74",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/config/front_camera.yaml",
+      "sha256": "fb9f1983abd80e5ac0732eeca5a3463ddbd28e7d59bbb5c03cb32d2641a19a0e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/include/u_robot_camera_bridge/camera_packet.hpp",
+      "sha256": "e58d01c0d76e5a7a45535038f4ffeed6f1f853575870296e3ccba69353583782",
+      "source": [
+        "container_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/launch/front_camera.launch.py",
+      "sha256": "6649d49e6c62cf5ce4f870b502877ce9b7d6d5e55758f9901cc57c2f6537cd90",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/package.xml",
+      "sha256": "1230539382ffa5e564c269567aef2cb467fb61ce28a2cb6148fd1a2dd3a37357",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/scripts/front_camera_bridge_node.py",
+      "sha256": "91a9f3764b42b0e34f19bc6c6ff5e637a3024d471cd86e5efb3ff7ed96d1f79a",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/src/front_camera_bridge_node.cpp",
+      "sha256": "a33876e1baaba570ad0510c20ad2ee2705d44e8a02d434548345fa6e2fcae8c1",
+      "source": [
+        "container_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/src/native_front_camera_reader.cpp",
+      "sha256": "13028d9c9d368338fbe2bc257fa1f1569cc165d70f04d2473a3af45bfbf244b3",
+      "source": [
+        "container_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_camera_bridge/test/test_camera_packet.cpp",
+      "sha256": "ec72fa79829bd07987d9cce25fd5ead3676a8c5a3ff506ba2d076c3da0ccef5d",
+      "source": [
+        "container_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_description/CMakeLists.txt",
+      "sha256": "01f2f7f5d5ff7f44d51983de9f999f0aa6cca8a4a8770814e42e7d2148f49d54",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_description/launch/a2_urdf_preview.launch.py",
+      "sha256": "8b5c106812d70956ee8fcbf3eb0c2351500dab0340dd9e5ee39cc7a17b5b0fff",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_description/launch/description.launch.py",
+      "sha256": "e87910eac0f88df0a942edbce17d36f734f368a43e14ac94bbf4a0e7761f12db",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_description/package.xml",
+      "sha256": "cf150d562c1406a00471ffb0da25690bc418e94145ca2f815b735a7bb8eca2b6",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_description/scripts/a2_stand_joint_publisher.py",
+      "sha256": "4df983d2115f6444804ede64e7eaa77c0706c960032ede7073d37d87d8bed035",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/CMakeLists.txt",
+      "sha256": "824e65c6f6173b59449b11f096a726a8861efc60ab5bb11e65425c0e992fec1c",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/config/localization.yaml",
+      "sha256": "593f78f83061d983fcc6ba31e4955cd96244dcefaface613128b35e7efb99c2a",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/include/u_robot_localization/localization_health.hpp",
+      "sha256": "7d6c08271ca01b97bf7d20bc37cbfbfe9d4723fa692062721f006e60cdd8ea3e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/launch/localization.launch.py",
+      "sha256": "a181690deb17b8f4aefef05b5d65c150e9eaf13c84148f97d4f91e56ca74aa85",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/launch/localization_core.launch.py",
+      "sha256": "4502f28031b6851048e3a9cba8fe56d231e8ccc873418e5c70ab7ffb153ea5bb",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/package.xml",
+      "sha256": "95cf4eb191bfc1d9b3fc99a36f481edadb8267805fb9d81ccfbe090fb7cb068d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/src/initial_pose_adapter_node.cpp",
+      "sha256": "f55d9e13e3ed818ed33ab135d729147d6451e353a0e3d11fb6b0acc4a36d654d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/src/localization_health.cpp",
+      "sha256": "3f881cf77d7db3afe3922814803cfb5a27daaea88813a4314cc68dd3c2eee822",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/src/localization_monitor_node.cpp",
+      "sha256": "2e9d088c5b0f1f7ee4ccda5ffaeceaf954befdc5574f7fa90212b35809bef94e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_localization/test/test_localization_health.cpp",
+      "sha256": "f4e92142cd60d67465a1f23d163a8490e1ff9f5bfe13ba8826b625e2c4d505df",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/CMakeLists.txt",
+      "sha256": "58f5e7c939fb693708ad7c57b97e6b5af5b15f0a9b94469abc163ea12587e22d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/config/slam_toolbox.yaml",
+      "sha256": "3f901dde59dd58afbd101ac40c98396dc9e5f484bf8f0177c64562436cd5be45",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/launch/manual_mapping.launch.py",
+      "sha256": "273269e7a1e695a86956763e9d6fdb8ed7f4cec8ea7c0da77919cdea5cd023f5",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/launch/mapping.launch.py",
+      "sha256": "b346037f26208a07616c7ed4da6c84a2e8620b9cf7df24eec110ad07ca409b1d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/launch/view_saved_map.launch.py",
+      "sha256": "21e8526a9069cd2ead530fac9d719ecae21a99e6ab54d73764003b544df47952",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/package.xml",
+      "sha256": "9e56f7e4ce76c15027e05dc16194cd5b10ff4d471387ef9af8bde30246f474de",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/rviz/mapping.rviz",
+      "sha256": "da82d24f0170ecd6bbece56eef73c0ddc4e2d24da16bf528f6b27c2873ccb78e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_mapping/scripts/save_map.sh",
+      "sha256": "4b5ee7c96e0838ac88ef7e65d652aeb23681423873c2af77ce4f2dd9f959f630",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/CMakeLists.txt",
+      "sha256": "fd2f362c21819cc7f1a81a160d0cb432f71caaeccae1ad5c5645defcd9894934",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/behavior_trees/navigate_reverse_with_local_clear_retry.xml",
+      "sha256": "1043254b041948f3529b4f1631e1a2e15e3f199341325ac711ef5049ff1837db",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/behavior_trees/navigate_with_local_clear_retry.xml",
+      "sha256": "942fd6251265a9e1fa47104efb3ec032cca6d75c7ee9065e47659b42ba77be23",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/config/collision_monitor.yaml",
+      "sha256": "18621e70dfebcd2f39086577bc8e65a93f93f110096974c361d733eed09dd6da",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/config/nav2_params.yaml",
+      "sha256": "b663ff7da39a3399df7da740fbf260bf495ae1e66fe087c0dbc2e42555ee69f3",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/config/operator_goal_adapter.yaml",
+      "sha256": "0b8208a3f51b2143185f7a146331556fd11a1ec7179c33bd319c36f19f4580a1",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/config/velocity_deadband_adapter.yaml",
+      "sha256": "bd1c0bc9d35a0f22b54e226a02d322504c21af998e28d253d269b8c0ab4df791",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/launch/navigation.launch.py",
+      "sha256": "dde6f15f047499b36d2ea3811dd6327ee0a407aa23b1ebdca48143b716979e85",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/package.xml",
+      "sha256": "96c32c8caae494c01166609b2d3a93c6ad25977e2f592aa48aab9cb0e396f8de",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/src/operator_goal_adapter_node.cpp",
+      "sha256": "eab5cd2569d51150e79f73d10f5217f2f4ce40a10668c588f0ed8449a4234a8e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/src/velocity_deadband_adapter_node.cpp",
+      "sha256": "2aa4d4d45123a15647e68dcf31df07959d840019d4d39b3feaf9d93c5b83e758",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/test/fixtures/empty_map.pgm",
+      "sha256": "e08677ec2d3f287e3967148673b2817f0a6d9d2ce353ecf9f1895c69daa8eadf",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_navigation/test/fixtures/empty_map.yaml",
+      "sha256": "597471925b153d30064e34a1ff9c6efc96395f78651769a03effc4be1a6a6a42",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_observability/CMakeLists.txt",
+      "sha256": "4f4e5b17ee15a456fb1089fbfe40117f9bc6b4687ff528d5860a05bec73f7230",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_observability/config/foxglove_read_only.yaml",
+      "sha256": "a8e967f3e30e4ed3c9b7f133baf02d3071b5d078c7eaa2b2bef3f07f14347259",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_observability/launch/foxglove.launch.py",
+      "sha256": "886d00b3b50618358c3d496547232c8f6f9dbe9b3c9e07ecbda2cb2071fd0f40",
+      "source": [
+        "container_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_observability/package.xml",
+      "sha256": "453e2065bfb62b0d55c587d8f21cf89c63a69521eaad6c4793c2af650523c836",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/config/patrol.yaml",
+      "sha256": "95d06ae1bc8500db25f17e0e41de935958c28f2e3c83be9d0579924c05305f38",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/package.xml",
+      "sha256": "12e872e5ffa0d8ffa52ca4a395ee82a719142eb6333917de2f5c51e5e6f819e6",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/resource/u_robot_patrol",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/setup.cfg",
+      "sha256": "510238dfac132d805755d0cc1a93dbdc3289dff2422514ac757c6b938073d382",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/setup.py",
+      "sha256": "92ec3a745db1cf36c44ecc50aadba1a7bfe107ba67cfdeef090f1a8c06a1d01c",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/u_robot_patrol/__init__.py",
+      "sha256": "b5f3c3d0877107ff8b50fd4ba8f0d9d140d1031211bafd247d8fa598c63efca3",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_patrol/u_robot_patrol/waypoint_patrol_node.py",
+      "sha256": "75f7bdfeb6db9b8ee5f3e40ad7ca5ea0ad7d63eb81db9ba23ba0af362faa4157",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/CMakeLists.txt",
+      "sha256": "51d8c48c78724437c18ad1b517ab23a9769515099acef417af809aebe0df54df",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/config/navigation_cloud_filter.yaml",
+      "sha256": "90df1a2f13623767c2597a64472a3819a2c97fae78c5c7533840f8372d662d2e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/config/pointcloud_to_mapping_scan.yaml",
+      "sha256": "8f791be4829cd2d1f5f7a07b028aadd539b15366dd12e44b3c6742b9bbc321cf",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/config/pointcloud_to_scan.yaml",
+      "sha256": "7831d9b57560d6164b2ba744ad9820f6a699ce33fe70a46754b1ee11916efd3e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/launch/lidar_navigation.launch.py",
+      "sha256": "43f679e416f2f3e6f1490d26ea11d53fe7a25b60227e6ff32eabe32541eee646",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/package.xml",
+      "sha256": "dd9a2fd127448e881260e398d5f91cbdd71b0fe199f32b824ac7c8bbdd6ca41e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/src/cloud_timestamp_normalizer_node.cpp",
+      "sha256": "8e3b750ecdce99ad6c1711f42c599fa3ddbe2cec135c7f4b6d8509ca82945124",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_perception/src/navigation_cloud_filter_node.cpp",
+      "sha256": "110f56908dca4e9ae7a027361907fc298a629d2259773b568c77f8cee714a7b9",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/CMakeLists.txt",
+      "sha256": "f50bd22d896914ab6317c75e494890959627e5888b6781826514395e38d5c186",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/include/u_robot_state_bridge/native_joint_packet.hpp",
+      "sha256": "9ccac66fe130cdceffc90e181e355b26849028ab4e0c49e2e72a1c33adfeca5c",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/include/u_robot_state_bridge/odometry_utils.hpp",
+      "sha256": "eb10a56e4398a1409bd3fe4af950efab2dca3e0b31cea171639456afb2520e52",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/launch/live_joint_state.launch.py",
+      "sha256": "eefc14d598206622fdf39d5526991ead8abfe0d248c1257be957d9a94fcb7648",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/package.xml",
+      "sha256": "dbfa3062a16d2d20fc1364e145bded848ea19f1ca1a41e537c1b6a4f53192454",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/src/joint_state_bridge_node.cpp",
+      "sha256": "7b5c419ced7445bbad8868f78c95b923a8032daf08a5e3a3bdd883bd2c155a9b",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/src/native_low_state_reader.cpp",
+      "sha256": "62ca8cd9965291d9d14ff38ccdff71a50ffba0a84a1a76e840107d3c98adff52",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/src/odometry_utils.cpp",
+      "sha256": "9fd80c52445d2bf885043a5b39e9de05b68c3d355b4daf52da98f9d08c530ea3",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/src/state_bridge_node.cpp",
+      "sha256": "7e95bee631124a5835792c94170cba4e99512004ec5e3dc53cca9296ea65dcd4",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/test/test_native_joint_packet.cpp",
+      "sha256": "718ba3188edd584b0430a405d23118a3206bf5148ba65c09813269e1301e85d7",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_state_bridge/test/test_odometry_utils.cpp",
+      "sha256": "332109fd78f794e4805fdbaf5d2203786281444679b125c25d4506fcd3b100b9",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/CMakeLists.txt",
+      "sha256": "31219198f7439c4bc2c935ec49c164cef3df47f1de6e0ae68b7934c983d53cfa",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/config/teleop.yaml",
+      "sha256": "ef9edf8c87502d8a2b57ee54b33c9754853945fd95e33a092d4d6db1ce32ec7f",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/launch/teleop.launch.py",
+      "sha256": "75bc93031e55419eeb87c9727ee8b35cd4dd817f0b457781ff0d68b7d357ad56",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/package.xml",
+      "sha256": "1612c00160197434bec968e329a7d0b33fd639b5ffb15c4ee4c7a70a8474fefa",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/scripts/teleop_receiver.py",
+      "sha256": "fe9b2a00719c9c5c63831d6af4a8d2696a75165a8fb03aa056d3b4051f66d8ec",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/scripts/teleop_runtime.py",
+      "sha256": "fdf052c9182254c36e915455d21ebaf0e6041f7cf97d37304a540aa57f66bb8a",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/test/test_docker_entry.py",
+      "sha256": "10d903686fbd3c3b94ffbd2eb13810984283621fd74582aca918370a086617bc",
+      "source": [
+        "publication_preparation"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/test/test_pc1_entry.py",
+      "sha256": "264206576e64b80e2a165f89fc43d57f7f0cd2d82428569ad064c80317acae5d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/test/test_runtime.py",
+      "sha256": "d71f21d2ddc6b3686578353111bcd5433b3bdc28a28d0a4100b376372c87d1d3",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/test/test_sport_lock.py",
+      "sha256": "9e120dbdff5265800ada6e193e8b754b3892a1868c4e1ba385a6aa9e26dfb20e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/test/test_supervisor.py",
+      "sha256": "34dcd94d8290f53ca49f20e2f934264393f45b1f4a141c8590bb723afbce1a09",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/vendor/PROVENANCE.md",
+      "sha256": "3f407f92adddbcdac27d916ac2c86383664b76126930fc2b89df0c07cafad2c8",
+      "source": [
+        "publication_preparation"
+      ]
+    },
+    {
+      "path": "src/u_robot_teleop/vendor/bin/a2_network_bridge",
+      "sha256": "985f9d035418756e0f342919e5324a62a892dd5c1a1acb1408f86bafea7bd276",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/analyze_navigation_trial.py",
+      "sha256": "192eb65f49ad03aab5a37e00fffcd753142156531b05d3b64c862cf4ad68010f",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/build.sh",
+      "sha256": "7bf4a1bec2e8c47ea5c137ed4ed95eb3c757777e93ae2aea5391a81a47fb593d",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/check_environment.sh",
+      "sha256": "a056e68b683a4f6e2908e7343075c5fb862452d7232d0afdd91972087a1c834c",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/check_navigation_ready.py",
+      "sha256": "410384aa6b7934c16001ff23fe794ca1b48e77f6a21a0c4330311aa797ed9294",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/clean_occupancy_map.py",
+      "sha256": "b31cd13545d244743c9da40daf82e1186f0a3cc1db9f67a460f901fceb6a7fdc",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/deploy_teleop_docker.sh",
+      "sha256": "4904e83b6c7d5da805f5d85aa62c3bde8119195eeae906afd61502a66ba5f166",
+      "source": [
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/mark_navigation_intervention.sh",
+      "sha256": "413295d416eb64d9f254c1c705a56cabd64c6dd16e9aab9ddf44da51f448a348",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/pc1_ble_docker.py",
+      "sha256": "46227ab839efd19e32db4443a2f106ec89c52877601b83260b8b86ac04ec801e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/prepare_demo_media.sh",
+      "sha256": "b4d14dd1114f57a534ee01be4c7d69943a64b433c69e55d422b36570bb8e82c0",
+      "source": [
+        "publication_preparation"
+      ]
+    },
+    {
+      "path": "scripts/prepare_navigation_map.py",
+      "sha256": "5635ce30a398722ad4e92a161f863481cb5163055889507764bedaeb883d23e5",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/record_navigation_trial.sh",
+      "sha256": "ed62aed24d1bab3d83275a91085cade50117aeaa020a6d47d373e78679633c1e",
+      "source": [
+        "container_u_robot_move",
+        "host_u_robot_move"
+      ]
+    },
+    {
+      "path": "scripts/run_teleop_docker.sh",
+      "sha256": "434e4d4e9dc6cfde7045483cf0578dfa2176d22c14a6141c2f23731c2f393091",
+      "source": [
+        "publication_preparation"
+      ]
+    }
+  ]
+}

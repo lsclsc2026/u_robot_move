@@ -1,0 +1,26 @@
+{
+  "localization-3x.mp4": {
+    "seconds": 44.4,
+    "bytes": 2779912,
+    "sha256": "e11f9d662f0cf3bf94637e91cca0c9014622ebf37e0aaff98aabcd96a5c0c304",
+    "codec": "h264",
+    "fps": "30/1",
+    "pix_fmt": "yuv420p"
+  },
+  "mapping-10x.mp4": {
+    "seconds": 32.534,
+    "bytes": 3517257,
+    "sha256": "0e84dc073a9b1937b2299b7c59c1bf299a616e48ab87173b6f83d650d3b7ab18",
+    "codec": "h264",
+    "fps": "30/1",
+    "pix_fmt": "yuv420p"
+  },
+  "patrol-10x.mp4": {
+    "seconds": 37.867,
+    "bytes": 3331493,
+    "sha256": "09256fd15f65c195da11b8f525595ab44e09a45edb0d1a88d21410140cba9cba",
+    "codec": "h264",
+    "fps": "30/1",
+    "pix_fmt": "yuv420p"
+  }
+}

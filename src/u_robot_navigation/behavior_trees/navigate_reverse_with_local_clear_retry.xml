@@ -1,0 +1,99 @@
+<!--
+  A guarded behavior for a nearby waypoint behind the robot. The kinematic
+  planner preserves body orientation while ReversePath follows the path with
+  negative vx. A start pose can itself become invalid after localization or
+  live-obstacle updates. In that case, make a short collision-checked escape
+  in whichever longitudinal direction is free; never spin the long footprint.
+-->
+<root main_tree_to_execute="MainTree">
+  <BehaviorTree ID="MainTree">
+    <RecoveryNode number_of_retries="3" name="ReverseNavigateWithCostmapClearing">
+      <PipelineSequence name="ReverseNavigateWithReplanning">
+        <RateController hz="1.0">
+          <RecoveryNode number_of_retries="2" name="ComputeReversePathWithRetry">
+            <ComputePathToPose
+              goal="{goal}" path="{path}" planner_id="ReverseApproach"/>
+            <Sequence name="RefreshGlobalMapBeforeReverseReplan">
+              <ClearEntireCostmap
+                name="ClearGlobalCostmapForReverseReplan"
+                service_name="global_costmap/clear_entirely_global_costmap"/>
+              <Wait wait_duration="2"/>
+            </Sequence>
+          </RecoveryNode>
+        </RateController>
+        <RecoveryNode number_of_retries="4" name="FollowReversePathWithRetry">
+          <FollowPath path="{path}" controller_id="ReversePath"/>
+          <Fallback name="EscapeFailedReversePathOrRefreshLocalMap">
+            <Sequence name="ContinueBackingThenRefreshLocalMap">
+              <BackUp
+                name="BackUpAfterReverseControllerFailure"
+                backup_dist="0.25"
+                backup_speed="0.10"
+                time_allowance="5.0"/>
+              <ClearEntireCostmap
+                name="ClearLocalCostmapAfterReverseBackUp"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+            <Sequence name="ReverseBlockedDriveForwardThenRefreshLocalMap">
+              <DriveOnHeading
+                name="DriveForwardAfterReverseControllerFailure"
+                dist_to_travel="0.20"
+                speed="0.10"
+                time_allowance="5.0"/>
+              <ClearEntireCostmap
+                name="ClearLocalCostmapAfterReverseForwardEscape"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+            <Sequence name="BothReverseDirectionsBlockedRefreshLocalMap">
+              <ClearEntireCostmap
+                name="ClearLocalCostmapForReverseRetry"
+                service_name="local_costmap/clear_entirely_local_costmap"/>
+              <Wait wait_duration="1"/>
+            </Sequence>
+          </Fallback>
+        </RecoveryNode>
+      </PipelineSequence>
+      <Fallback name="EscapeInvalidReverseStartOrRefreshMaps">
+        <Sequence name="BackUpFromInvalidReverseStart">
+          <BackUp
+            name="BackUpFromReversePlannerFailure"
+            backup_dist="0.30"
+            backup_speed="0.10"
+            time_allowance="5.0"/>
+          <ClearEntireCostmap
+            name="ClearLocalAfterReversePlannerBackUp"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalAfterReversePlannerBackUp"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="1"/>
+        </Sequence>
+        <Sequence name="ReversePlannerBackUpBlockedDriveForward">
+          <DriveOnHeading
+            name="DriveForwardFromInvalidReverseStart"
+            dist_to_travel="0.25"
+            speed="0.10"
+            time_allowance="5.0"/>
+          <ClearEntireCostmap
+            name="ClearLocalAfterReversePlannerForwardEscape"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalAfterReversePlannerForwardEscape"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="1"/>
+        </Sequence>
+        <Sequence name="BothReverseEscapeDirectionsBlockedRefreshMaps">
+          <ClearEntireCostmap
+            name="ClearLocalCostmapForReverseRecovery"
+            service_name="local_costmap/clear_entirely_local_costmap"/>
+          <ClearEntireCostmap
+            name="ClearGlobalCostmapForReverseRecovery"
+            service_name="global_costmap/clear_entirely_global_costmap"/>
+          <Wait wait_duration="2"/>
+        </Sequence>
+      </Fallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>
