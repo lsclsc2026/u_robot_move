@@ -51,7 +51,7 @@ LaserScan 与障碍过滤是两条并行支路：当前定位/导航的 scan 默
 | `u_robot_camera_bridge` | H.264/RTP 解码，输出压缩相机话题 |
 | `u_robot_teleop` | 原有遥控接收器封装、进程监督与运动互斥 |
 
-语音在独立 [u_robot_audio](https://github.com/lsclsc2026/u_robot_audio) 工作区；Foxglove 可以暴露其受限操作接口，但导航不要求语音节点存在。
+语音在独立 [宇树机器人语音播报系统](https://github.com/lsclsc2026/u_robot_audio) 工作区；Foxglove 可以暴露其受限操作接口，但导航不要求语音节点存在。
 
 ## 算法选择
 

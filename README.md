@@ -1,10 +1,10 @@
-# Unitree A2 Pro 室内导航与多点巡逻
+# 宇树四足机器人室内导航与多点巡逻
 
 基于 ROS 2 Humble 的四足机器人导航工程，覆盖 **SLAM 建图 → 静态地图定位 → 点选目标 → 多点循环巡逻**。使用 Nav2、SLAM Toolbox、AMCL 和 Foxglove，包含 A2 运动接口、点云过滤、相机显示与运行记录工具。
 
 [![多点巡逻：地图、路径、机器人前视相机](docs/media/patrol.jpg)](https://github.com/lsclsc2026/u_robot_move/releases/download/v0.1.0-review/patrol-10x.mp4)
 
-*点击封面观看巡逻演示（10 倍速）。这是实机运行的界面录制；第三人称实拍视频待补充。*
+*点击封面观看巡逻演示（10 倍速）。这是实机运行的界面录制。*
 
 ![巡逻片段，10 倍速](docs/media/patrol-preview-10x.gif)
 
@@ -13,9 +13,8 @@
 | 建图 | 激光地图逐步建立，前视相机与模型同步显示 | [10 倍速 MP4，约 33 秒](https://github.com/lsclsc2026/u_robot_move/releases/download/v0.1.0-review/mapping-10x.mp4) |
 | 定位与打点 | 静态地图定位、界面交互与点位设置 | [3 倍速 MP4，约 44 秒](https://github.com/lsclsc2026/u_robot_move/releases/download/v0.1.0-review/localization-3x.mp4) |
 | 多点巡逻 | 点位、路径与机器人前视画面 | [10 倍速 MP4，约 38 秒](https://github.com/lsclsc2026/u_robot_move/releases/download/v0.1.0-review/patrol-10x.mp4) |
-| 第三人称实拍 | 后续补录机器人在场地中行走的画面 | 待补充 |
 
-视频是功能展示材料，不能替代对应代码版本的完整实机验收。[素材说明](docs/media.md)记录时长、来源与后续补录位置。
+视频是功能展示材料，不能替代对应代码版本的完整实机验收。[素材说明](docs/media.md)记录时长、来源。
 
 ## 功能
 
@@ -31,7 +30,7 @@
 
 ## 环境与目录
 
-目标硬件为 Unitree A2 Pro。推荐 Ubuntu 22.04 / ROS 2 Humble / CycloneDDS，使用 [unitree_docker](https://github.com/lsclsc2026/unitree_docker) 准备环境及固定版本的 SDK。
+目标硬件为 Unitree A2 Pro。推荐 Ubuntu 22.04 / ROS 2 Humble / CycloneDDS，使用 [宇树机器人容器化开发环境](https://github.com/lsclsc2026/unitree_docker) 准备环境及固定版本的 SDK。
 
 ```text
 unitree_robot_development/
@@ -94,7 +93,7 @@ ros2 launch u_robot_navigation navigation.launch.py \
 | [遥控模块](docs/teleop.md) | 接收器包装、互斥锁、PC1 接口及缺失源码说明 |
 | [记录与验证](docs/validation.md) | 离线检查、实机测试记录方法与当前限制 |
 | [故障排查](docs/troubleshooting.md) | DDS、TF、定位、规划、点云、相机 |
-| [展示素材](docs/media.md) | 视频下载、截图、压缩方法及待补录项 |
+| [展示素材](docs/media.md) | 视频下载、截图、压缩方法 |
 | [来源与第三方依赖](THIRD_PARTY.md) | SDK、模型、接收器二进制和许可状态 |
 
 ## 发布状态

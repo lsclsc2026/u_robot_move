@@ -5,7 +5,7 @@
 - Unitree A2 Pro 的高层运动接口、里程计、融合点云和前视相机可用。
 - 机器人网络接口默认为 `eth0`，原生 DDS domain 默认为 0。
 - Ubuntu 22.04、ROS 2 Humble；ROS 使用发行版 CycloneDDS，原生 SDK 后端使用独立进程。
-- 准备 [unitree_docker](https://github.com/lsclsc2026/unitree_docker) 所述环境和 SDK，保持同级目录布局。
+- 准备 [宇树机器人容器化开发环境](https://github.com/lsclsc2026/unitree_docker) 所述环境和 SDK，保持同级目录布局。
 
 主要原始输入为 `/dog_odom`、`/unitree/slam_lidar/points`、原生 `rt/lf/lowstate` 和相机 RTP/H.264 多播。宇树设备侧点云融合服务不由本仓库实现；仅启动此工程不会自动补齐缺失的设备驱动。
 
